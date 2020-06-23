@@ -15,6 +15,30 @@ export default class AudioPlayer extends PureComponent {
     };
   }
 
+  render() {
+    const {isLoading, isPlaying} = this.state;
+    const {onPlayButtonClick} = this.props;
+
+    return (
+      <Fragment>
+        <button
+          className={`track__button track__button--${isPlaying ? `pause` : `play`}`}
+          type="button"
+          disabled={isLoading}
+          onClick={() => {
+            this.setState({isPlaying: !this.state.isPlaying});
+            onPlayButtonClick();
+          }}
+        />
+        <div className="track__status">
+          <audio
+            ref={this._audioRef}
+          />
+        </div>
+      </Fragment>
+    );
+  }
+
   componentDidMount() {
     const {src} = this.props;
     const audio = this._audioRef.current;
@@ -48,30 +72,6 @@ export default class AudioPlayer extends PureComponent {
     audio.onpause = null;
     audio.ontimeupdate = null;
     audio.src = ``;
-  }
-
-  render() {
-    const {isLoading, isPlaying} = this.state;
-    const {onPlayButtonClick} = this.props;
-
-    return (
-      <Fragment>
-        <button
-          className={`track__button track__button--${isPlaying ? `pause` : `play`}`}
-          type="button"
-          disabled={isLoading}
-          onClick={() => {
-            this.setState({isPlaying: !this.state.isPlaying});
-            onPlayButtonClick();
-          }}
-        />
-        <div className="track__status">
-          <audio
-            ref={this._audioRef}
-          />
-        </div>
-      </Fragment>
-    );
   }
 
   componentDidUpdate() {
