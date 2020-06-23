@@ -47,6 +47,7 @@ it(`Click on user answer should pass to the callback data-object from which this
   const screen = shallow(<ArtistQuestionScreen
     onAnswer={onAnswer}
     question={question}
+    renderPlayer={() => {}}
   />);
 
   const answerInputs = screen.find(`input`);
@@ -56,6 +57,5 @@ it(`Click on user answer should pass to the callback data-object from which this
 
   expect(onAnswer).toHaveBeenCalledTimes(1);
 
-  expect(onAnswer.mock.calls[0][0]).toMatchObject(question);
-  expect(onAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
+  expect(onAnswer).toHaveBeenCalledWith(question, userAnswer);
 });

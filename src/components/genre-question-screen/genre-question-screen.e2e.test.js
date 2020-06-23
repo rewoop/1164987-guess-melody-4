@@ -36,6 +36,7 @@ it(`When user answers genre question form is not sent`, () => {
   const genreQuestion = shallow(<GenreQuestionScreen
     onAnswer={onAnswer}
     question={question}
+    renderPlayer={() => {}}
   />);
 
   const form = genreQuestion.find(`form`);
@@ -56,6 +57,7 @@ it(`User answer passed to callback is consistent with "userAnswer" prop`, () => 
   const genreQuestion = shallow(<GenreQuestionScreen
     onAnswer={onAnswer}
     question={question}
+    renderPlayer={() => {}}
   />);
 
   const form = genreQuestion.find(`form`);
@@ -66,8 +68,7 @@ it(`User answer passed to callback is consistent with "userAnswer" prop`, () => 
 
   expect(onAnswer).toHaveBeenCalledTimes(1);
 
-  expect(onAnswer.mock.calls[0][0]).toMatchObject(question);
-  expect(onAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
+  expect(onAnswer).toHaveBeenCalledWith(question, userAnswer);
 
   expect(
       genreQuestion.find(`input`).map((it) => it.prop(`checked`))
