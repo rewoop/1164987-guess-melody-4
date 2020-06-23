@@ -106,12 +106,12 @@ class App extends PureComponent {
 App.propTypes = {
   errorsCount: PropTypes.number.isRequired,
   questions: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.string.isRequired,
-      genre: PropTypes.string,
-      answers: PropTypes.array.isRequired,
-      song: PropTypes.object
-    }).isRequired
+      PropTypes.shape({
+        type: PropTypes.string.isRequired,
+        genre: PropTypes.string,
+        answers: PropTypes.array.isRequired,
+        song: PropTypes.object
+      }).isRequired
   )
 };
 
