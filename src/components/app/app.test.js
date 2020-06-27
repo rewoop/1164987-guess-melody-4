@@ -35,16 +35,16 @@ describe(`Render App`, () => {
 
     const tree = renderer
       .create(
-        <Provider store={store}>
-          <App
-            maxMistakes={3}
-            questions={questions}
-            onUserAnswer={() => {}}
-            onWelcomeButtonClick={() => {}}
-            step={-1}
-          />
-        </Provider>
-        )
+          <Provider store={store}>
+            <App
+              maxMistakes={3}
+              questions={questions}
+              onUserAnswer={() => {}}
+              onWelcomeButtonClick={() => {}}
+              step={-1}
+            />
+          </Provider>
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -56,19 +56,19 @@ describe(`Render App`, () => {
 
     const tree = renderer
       .create(
-        <Provider store={store}>
-          <App
-            maxMistakes={3}
-            questions={questions}
-            onUserAnswer={() => {}}
-            onWelcomeButtonClick={() => {}}
-            step={0}
-          />
-        </Provider>, {
-          createNodeMock: () => {
-            return {};
-          }
-        })
+          <Provider store={store}>
+            <App
+              maxMistakes={3}
+              questions={questions}
+              onUserAnswer={() => {}}
+              onWelcomeButtonClick={() => {}}
+              step={0}
+            />
+          </Provider>, {
+            createNodeMock: () => {
+              return {};
+            }
+          })
       .toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -81,18 +81,18 @@ describe(`Render App`, () => {
 
     const tree = renderer
       .create(
-        <Provider store={store}>
-          <App
-            maxMistakes={3}
-            questions={questions}
-            onUserAnswer={() => {}}
-            onWelcomeButtonClick={() => {}}
-            step={1}
-          />
-        </Provider>, {
-          createNodeMock: () => {
-            return {};
-          }
+          <Provider store={store}>
+            <App
+              maxMistakes={3}
+              questions={questions}
+              onUserAnswer={() => {}}
+              onWelcomeButtonClick={() => {}}
+              step={1}
+            />
+          </Provider>, {
+            createNodeMock: () => {
+              return {};
+            }
           })
         .toJSON();
 

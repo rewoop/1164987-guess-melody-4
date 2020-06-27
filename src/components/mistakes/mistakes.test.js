@@ -6,8 +6,8 @@ describe(`Should Mistakes render correctly`, () => {
   it(`With one zero count`, () => {
     const tree = renderer
       .create(<Mistakes
-    count={0}
-    />)
+        count={0}
+      />)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -16,8 +16,8 @@ describe(`Should Mistakes render correctly`, () => {
   it(`With one one count`, () => {
     const tree = renderer
       .create(<Mistakes
-    count={1}
-    />)
+        count={1}
+      />)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
