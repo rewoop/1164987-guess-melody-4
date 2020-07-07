@@ -23,8 +23,8 @@ export const getArtistQuestions = createSelector(
     // Последняя функция уже не геттер, а комбайнер,
     // она принимает результаты всех предыдущих функций
     // и возвращает результат на их основе
-    (resultOne, resultTwo) => {
-      return resultOne.filter((it) => resultTwo && it.type === `artist`);
+    (questions, isArtistQuestions) => {
+      return questions.filter((it) => isArtistQuestions && it.type === `artist`);
     }
 );
 
